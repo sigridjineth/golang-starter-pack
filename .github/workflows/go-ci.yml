@@ -1,0 +1,33 @@
+name: Go CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - develop
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.23.11'
+
+    - name: Install tools
+      run: make init
+
+    - name: Run make format
+      run: make format
+
+    - name: Run make check
+      run: make check
+
+    - name: Run make test
+      run: make test

@@ -1,0 +1,16 @@
+server:
+  port: 8080
+  read_timeout: 30s
+  write_timeout: 30s
+
+logger:
+  level: "info" # debug, info, warn, error
+  format: "json" # json, text
+
+database:
+  host: "localhost"
+  port: 5432
+  user: "user"
+  password: "password"
+  dbname: "starter_db"
+  sslmode: "disable"
